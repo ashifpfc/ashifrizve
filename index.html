@@ -1,0 +1,784 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Ashif Rizve Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: engineering title-block feel — navy drafting sheet, gold callouts, condensed signage type, mono for dates & specs */
+:root{
+  --navy:#0a1930; --navy-2:#102544; --navy-3:#17325a;
+  --gold:#d4af37; --gold-2:#f1d77a; --ink:#e9eef6; --muted:#9fb0c8; --line:rgba(212,175,55,.22);
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Barlow","Segoe UI",Arial,sans-serif;
+  --f-mono:"JetBrains Mono",Consolas,"Courier New",monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* background */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:
+  linear-gradient(rgba(212,175,55,.05) 1px,transparent 1px) 0 0/40px 40px,
+  linear-gradient(90deg,rgba(212,175,55,.05) 1px,transparent 1px) 0 0/40px 40px,
+  radial-gradient(1200px 600px at 80% -10%,var(--navy-3),transparent 60%),var(--navy);
+  animation:gridMove 30s linear infinite}
+@keyframes gridMove{to{background-position:40px 40px,40px 40px,0 0,0 0}}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.35;animation:float 16s ease-in-out infinite}
+.orb.a{width:340px;height:340px;background:var(--gold);top:8%;left:-120px;opacity:.18}
+.orb.b{width:420px;height:420px;background:#2a5ea8;bottom:-120px;right:-140px;animation-delay:-6s}
+.orb.c{width:220px;height:220px;background:var(--gold-2);top:55%;left:45%;opacity:.12;animation-delay:-10s}
+@keyframes float{50%{transform:translate(40px,-50px) scale(1.1)}}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:rgba(10,25,48,.78);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{font-family:var(--f-display);font-weight:800;font-size:22px;letter-spacing:.06em;color:var(--gold);text-decoration:none}
+.links{display:flex;gap:4px;flex-wrap:wrap}
+.links a{font-family:var(--f-display);font-weight:600;font-size:15px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:6px 10px;border-radius:4px;color:var(--muted);transition:.25s}
+.links a:hover{color:var(--navy);background:var(--gold)}
+
+/* hero */
+.hero{padding-block:120px 70px;display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
+.avatar{width:170px;height:170px;border-radius:50%;display:grid;place-items:center;position:relative;
+  background:radial-gradient(circle at 30% 30%,var(--gold-2),var(--gold) 55%,#8a6d17);
+  font-family:var(--f-display);font-weight:800;font-size:68px;color:var(--navy);letter-spacing:.02em;
+  animation:pop .9s cubic-bezier(.2,1.6,.4,1) both, glow 3s ease-in-out 1s infinite}
+.avatar::after{content:"";position:absolute;inset:-12px;border-radius:50%;border:2px dashed var(--gold);animation:spin 18s linear infinite;opacity:.6}
+@keyframes pop{from{transform:scale(.4) rotate(-20deg)}}
+@keyframes glow{50%{box-shadow:0 0 50px 8px rgba(212,175,55,.45)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.eyebrow{font-family:var(--f-mono);font-size:13px;color:var(--gold);letter-spacing:.14em;text-transform:uppercase}
+.name{font-size:clamp(48px,9vw,96px);font-weight:800;line-height:.95;letter-spacing:.02em;margin-top:6px;
+  background:linear-gradient(100deg,var(--ink) 20%,var(--gold-2) 40%,var(--gold) 50%,var(--ink) 70%);background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 5s linear infinite}
+@keyframes shimmer{from{background-position:100% 0}to{background-position:-150% 0}}
+.role{font-family:var(--f-display);font-size:28px;font-weight:600;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;margin-top:6px}
+.tag{color:var(--muted);max-width:60ch;margin:14px 0 20px;font-size:17px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);font-size:14px;transition:.25s}
+.chip:hover{border-color:var(--gold);transform:translateY(-3px);background:rgba(212,175,55,.08)}
+.chip svg{width:15px;height:15px;stroke:var(--gold);fill:none;stroke-width:2}
+.hint{grid-column:1/-1;justify-self:center;margin-top:20px;font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.2em;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:8px}
+.hint span{width:22px;height:36px;border:2px solid var(--gold);border-radius:12px;position:relative}
+.hint span::after{content:"";position:absolute;left:50%;top:6px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--gold);animation:wheel 1.6s infinite}
+@keyframes wheel{to{transform:translateY(12px);opacity:0}}
+.hero > *{animation:rise .9s both}
+.hero > div:nth-child(2){animation-delay:.2s}
+@keyframes rise{from{transform:translateY(30px);opacity:0}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);border-radius:6px;background:rgba(16,37,68,.6)}
+.stat{padding:26px 18px;text-align:center;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--f-display);font-size:52px;font-weight:800;color:var(--gold);line-height:1;font-variant-numeric:tabular-nums}
+.stat small{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* sections */
+section{padding-block:80px 10px;scroll-margin-top:60px}
+.sh{display:flex;align-items:baseline;gap:16px;margin-bottom:34px}
+.sh h2{font-size:clamp(34px,5vw,48px);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.sh::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
+.reveal{transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .8s}
+.reveal.pre{transform:translateY(40px);filter:blur(3px)}
+
+/* timeline */
+.tl{position:relative;padding-left:34px}
+.tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),rgba(212,175,55,.1))}
+.job{position:relative;margin-bottom:22px;padding:20px 22px;background:rgba(16,37,68,.7);border:1px solid var(--line);border-radius:6px;transition:.3s}
+.job:hover{border-color:var(--gold);transform:translateX(6px);box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.job::before{content:"";position:absolute;left:-31px;top:24px;width:14px;height:14px;border-radius:50%;background:var(--navy);border:3px solid var(--gold)}
+.job.now::before{background:var(--gold);box-shadow:0 0 0 6px rgba(212,175,55,.2);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 12px rgba(212,175,55,0)}}
+.job .top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.job h3{font-size:24px;font-weight:700;letter-spacing:.02em}
+.date{font-family:var(--f-mono);font-size:13px;color:var(--gold);white-space:nowrap}
+.co{color:var(--ink);font-weight:600}
+.pj{color:var(--muted);font-size:15px}
+.spec{display:inline-block;margin-top:8px;font-family:var(--f-mono);font-size:12px;padding:3px 8px;border:1px solid var(--line);border-radius:3px;color:var(--gold-2)}
+
+/* skills */
+.sk{display:grid;grid-template-columns:1.1fr 1fr;gap:40px}
+.cloud{display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start}
+.cloud span{padding:9px 15px;border-radius:4px;background:rgba(212,175,55,.08);border:1px solid var(--line);font-weight:500;font-size:15px;transition:.25s;animation:rise .6s both}
+.cloud span:hover{background:var(--gold);color:var(--navy);transform:translateY(-4px) rotate(-1deg)}
+.bar{margin-bottom:20px}
+.bar .l{display:flex;justify-content:space-between;font-weight:600;margin-bottom:6px}
+.bar .l em{font-style:normal;font-family:var(--f-mono);color:var(--gold)}
+.track{height:10px;border-radius:5px;background:rgba(255,255,255,.07);overflow:hidden}
+.fill{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--gold),var(--gold-2));position:relative}
+.fill::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);animation:sweep 2.4s infinite}
+@keyframes sweep{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.fill.go{animation:grow 1.6s cubic-bezier(.2,.8,.2,1)}
+@keyframes grow{from{width:0}}
+
+/* background cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{padding:22px;background:rgba(16,37,68,.7);border:1px solid var(--line);border-radius:6px;transition:.3s;min-width:0}
+.card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 14px 30px rgba(0,0,0,.35)}
+.card h3{font-size:22px;color:var(--gold);letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.card h3 svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.8}
+.card ul{margin:0;padding-left:18px;color:var(--muted)}
+.card li{margin-bottom:4px}
+.card li::marker{color:var(--gold)}
+
+/* contact */
+.contact{text-align:center;padding:50px 24px;border:1px solid var(--line);border-radius:8px;background:linear-gradient(135deg,rgba(212,175,55,.12),rgba(16,37,68,.8))}
+.contact p{color:var(--muted);max-width:55ch;margin:10px auto 26px}
+.btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.btn{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:5px;border:1px solid var(--gold);background:transparent;color:var(--ink);font:600 15px var(--f-body);text-decoration:none;cursor:pointer;transition:.25s}
+.btn.solid{background:var(--gold);color:var(--navy)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(212,175,55,.3)}
+.btn small{font-family:var(--f-mono);font-size:12px;opacity:.8}
+.copied{min-height:22px;margin-top:12px;font-family:var(--f-mono);font-size:13px;color:var(--gold)}
+footer{text-align:center;padding:50px 20px 40px;color:var(--muted);font-size:14px}
+footer b{color:var(--gold);font-family:var(--f-display);letter-spacing:.1em}
+
+/* photo */
+.av-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.ph-btns{display:flex;gap:8px}
+.mini{font:600 13px var(--f-body);padding:5px 12px;border-radius:999px;border:1px solid var(--gold);background:rgba(10,25,48,.6);color:var(--gold);cursor:pointer;transition:.2s}
+.mini:hover{background:var(--gold);color:var(--navy)}
+
+/* floating tools */
+.fabs{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.fab{display:flex;align-items:center;gap:8px;height:48px;padding:0 16px;border-radius:24px;border:0;cursor:pointer;font:600 14px var(--f-body);background:var(--gold);color:var(--navy);box-shadow:0 8px 24px rgba(0,0,0,.4);transition:.25s}
+.fab.ghost{background:var(--navy-2);color:var(--gold);border:1px solid var(--gold)}
+.fab:hover{transform:translateY(-3px) scale(1.03)}
+.fab svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2}
+.panel{position:fixed;right:18px;bottom:calc(196px + env(safe-area-inset-bottom,0px));z-index:61;width:min(360px,calc(100vw - 36px));padding:18px;border-radius:8px;background:var(--navy-2);border:1px solid var(--gold);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.panel h4{margin:0 0 4px;font:700 20px var(--f-display);letter-spacing:.05em;color:var(--gold);text-transform:uppercase}
+.panel p{margin:0 0 10px;font-size:13px;color:var(--muted)}
+.row{display:flex;gap:8px}
+.row input{flex:1;min-width:0;padding:10px 12px;border-radius:5px;border:1px solid var(--line);background:var(--navy);color:var(--ink);font:15px var(--f-body)}
+.mic{width:44px;height:44px;flex:none;border-radius:50%;border:0;background:var(--gold);color:var(--navy);cursor:pointer;display:grid;place-items:center}
+.mic svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2}
+.mic.on{animation:micpulse 1.2s infinite;background:#e0533f;color:#fff}
+@keyframes micpulse{0%{box-shadow:0 0 0 0 rgba(224,83,63,.6)}100%{box-shadow:0 0 0 16px rgba(224,83,63,0)}}
+.heard{min-height:20px;margin:10px 0 6px;font-family:var(--f-mono);font-size:12px;color:var(--gold-2)}
+.ex{margin:0;padding-left:16px;font-size:12px;color:var(--muted);font-family:var(--f-mono)}
+.prow{display:flex;justify-content:space-between;margin-top:12px;gap:8px;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:70;max-width:calc(100vw - 32px);padding:11px 18px;border-radius:6px;background:var(--gold);color:var(--navy);font-weight:600;font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,.45);text-align:center}
+
+@media print{
+  @page{margin:14mm}
+  :root{color-scheme:light}
+  body{background:#fff!important;color:#1a1a1a;font-size:12pt}
+  .bg,nav,.fabs,.panel,.toast,.hint,.ph-btns,.copied{display:none!important}
+  *,*::before,*::after{animation:none!important;transition:none!important;box-shadow:none!important;backdrop-filter:none!important}
+  .reveal.pre{transform:none;filter:none}
+  .wrap{max-width:none;padding:0}
+  .hero{padding:0 0 16px;grid-template-columns:auto 1fr;text-align:left;justify-items:start;gap:24px}
+  .avatar{width:110px;height:110px;font-size:42px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .avatar::after{display:none}
+  .name{background:none;-webkit-background-clip:initial;background-clip:initial;color:#0a1930;font-size:40pt}
+  .role,.eyebrow,.date,.stat b,.card h3,.bar .l em{color:#8a6d17}
+  .tag,.pj,.card ul,.stat small,.contact p,footer{color:#444}
+  .co,.job h3,.sh h2,.bar .l{color:#0a1930}
+  .chip,.stats,.job,.card,.contact,.spec,.cloud span,.btn{background:#fff!important;border-color:#c9b46a!important;color:#1a1a1a!important}
+  .chips{justify-content:flex-start}
+  .stats{grid-template-columns:repeat(5,1fr)}.stat{border-bottom:0!important;padding:12px}
+  .stat b{font-size:28pt}
+  section{padding:18px 0 0}.sh{margin-bottom:12px}
+  .job,.card,.bar,.stats{break-inside:avoid}
+  .job{margin-bottom:10px;padding:12px 14px}
+  .job::before{background:#fff}.job.now::before{background:#d4af37}
+  .tl::before{background:#c9b46a}
+  .sk{grid-template-columns:1.1fr 1fr;gap:20px}
+  .track{background:#eee;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .fill{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .cards{grid-template-columns:repeat(3,1fr);gap:10px}
+  .contact{padding:16px}.btn{border:1px solid #c9b46a}
+  footer{padding:20px 0 0}
+}
+
+/* company badges: hex-nut monogram, user can drop in a logo */
+.job{padding-left:96px}
+.lb{position:absolute;left:20px;top:18px;width:58px;height:58px;border:0;padding:0;cursor:pointer;display:grid;place-items:center;
+  clip-path:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%);background:linear-gradient(145deg,var(--gold-2),var(--gold) 60%,#8a6d17);transition:transform .35s}
+.lb::before{content:"";position:absolute;inset:3px;clip-path:inherit;background:var(--navy)}
+.lb span{position:relative;font:800 17px var(--f-display);letter-spacing:.06em;color:var(--gold)}
+.lb img{position:relative;width:calc(100% - 12px);height:calc(100% - 12px);object-fit:contain;background:#fff;clip-path:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%);padding:6px}
+.job:hover .lb{transform:rotate(30deg)}
+.job:hover .lb span,.job:hover .lb img{transform:rotate(-30deg)}
+.lb span,.lb img{transition:transform .35s}
+.lbx{position:absolute;left:66px;top:12px;width:20px;height:20px;border-radius:50%;border:1px solid var(--gold);background:var(--navy);color:var(--gold);font:700 12px/1 var(--f-body);cursor:pointer;display:grid;place-items:center;padding:0}
+@media (max-width:560px){.job{padding-left:78px}.lb{left:14px;width:48px;height:48px}.lb span{font-size:14px}.lbx{left:52px}}
+@media print{.lb{-webkit-print-color-adjust:exact;print-color-adjust:exact}.lbx{display:none!important}.job:hover .lb{transform:none}}
+
+.radar{margin-top:40px;padding:24px;border:1px solid var(--line);border-radius:6px;background:rgba(16,37,68,.6)}
+.radar-h{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+.radar-h h3{font-size:26px;letter-spacing:.05em;text-transform:uppercase;color:var(--gold)}
+.radar-h span{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.radar-box{overflow-x:auto}.radar svg{display:block;width:100%;max-width:760px;min-width:380px;margin:0 auto}
+.rg{fill:none;stroke:rgba(212,175,55,.2);stroke-width:1}
+.rt{fill:var(--muted);font:10px var(--f-mono)}
+.rp{fill:rgba(212,175,55,.3);stroke:var(--gold);stroke-width:2.5;stroke-linejoin:round}
+.rd{fill:var(--navy);stroke:var(--gold-2);stroke-width:2.5}
+.rl{fill:var(--ink);font:600 12.5px var(--f-body)}.rv{fill:var(--gold);font:600 11px var(--f-mono)}
+.rp-g{transform-origin:220px 200px;transform-box:view-box;animation:radarIn 1.6s cubic-bezier(.2,1.3,.4,1) both}
+.radar.pre .rp-g{animation:none;transform:scale(.2)}
+@keyframes radarIn{from{transform:scale(.1) rotate(-30deg);opacity:.3}}
+@media print{.radar{background:#fff!important;border-color:#c9b46a!important;break-inside:avoid}.rl{fill:#0a1930}.rd{fill:#fff}.rg{stroke:#ccc}.rp{fill:rgba(212,175,55,.35);-webkit-print-color-adjust:exact;print-color-adjust:exact}.radar-h h3{color:#8a6d17}}
+
+.plants{margin-top:24px}
+.pt-box{overflow-x:auto;margin-top:16px}
+.pt{width:100%;min-width:760px;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.pt thead th{font:600 13px/1.2 var(--f-display);letter-spacing:.06em;text-transform:uppercase;color:var(--gold-2);padding:8px 4px 12px;vertical-align:bottom;width:10%}
+.pt tbody th{text-align:left;padding:10px 12px;width:26%}
+.pt tbody th b{display:block;font:700 18px var(--f-display);letter-spacing:.02em;color:var(--ink)}
+.pt tbody th small{font-size:12px;color:var(--muted)}
+.pt tbody tr{border-top:1px solid var(--line);transition:background .25s}
+.pt tbody tr:hover{background:rgba(212,175,55,.07)}
+.pt td{text-align:center;padding:8px 4px}
+.pm{display:inline-grid;place-items:center;width:10px;height:10px;border-radius:50%;background:rgba(159,176,200,.25)}
+.pm.on{width:32px;height:32px;background:var(--gold);color:var(--navy);font-weight:800;font-size:15px;box-shadow:0 0 0 4px rgba(212,175,55,.15);animation:pmIn .5s cubic-bezier(.2,1.6,.4,1) var(--d) both}
+.plants.pre .pm.on{animation:none;transform:scale(0)}
+@keyframes pmIn{from{transform:scale(0)}}
+.pt tbody tr:hover .pm.on{box-shadow:0 0 0 7px rgba(212,175,55,.25)}
+.pn{font:800 24px var(--f-display);color:var(--gold)}
+.pt tfoot td{font-family:var(--f-mono);font-size:11px;color:var(--muted);padding-top:12px;border-top:1px solid var(--line)}
+@media print{.pt thead th{color:#8a6d17}.pt tbody th b{color:#0a1930}.pm.on{-webkit-print-color-adjust:exact;print-color-adjust:exact;box-shadow:none}.pm{background:#ddd;-webkit-print-color-adjust:exact;print-color-adjust:exact}.pt tbody tr,.pt tfoot td{border-color:#ddd}.pt{min-width:0;font-size:10pt}.pt tbody th b{font-size:12pt}.pm.on{width:22px;height:22px;font-size:11px}}
+
+/* experience drawings + site photo gallery */
+.job{display:grid;grid-template-columns:minmax(0,1fr) 230px;column-gap:22px;align-items:start}
+.job > :not(.ill):not(.lb):not(.lbx){grid-column:1}
+.job .spec{justify-self:start}
+.ill{grid-column:2;grid-row:1 / span 6;margin:0;padding:10px 10px 6px;border:1px solid var(--line);border-radius:4px;
+  background:linear-gradient(rgba(212,175,55,.06) 1px,transparent 1px) 0 0/12px 12px,linear-gradient(90deg,rgba(212,175,55,.06) 1px,transparent 1px) 0 0/12px 12px,rgba(10,25,48,.6)}
+.ill svg{display:block;width:100%;height:auto;overflow:visible}
+.ill svg *{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0;animation:draw 2.2s ease-out both}
+.ill svg .lt{stroke:var(--gold-2);stroke-width:.8;opacity:.75}
+.ill svg .gr{stroke:var(--muted);stroke-width:1;opacity:.5}
+.ill svg .dim{stroke:var(--muted);stroke-width:.7}
+.ill svg .fl{fill:var(--gold);fill-opacity:.5;stroke:var(--gold-2);animation:draw 2.2s ease-out both,flick 1.2s ease-in-out 2.2s infinite;transform-origin:216px 12px;transform-box:view-box}
+.ill svg .dt{fill:var(--muted);stroke:none;font:7px var(--f-mono);text-anchor:middle;animation:none}
+@keyframes draw{from{stroke-dashoffset:1}}
+@keyframes flick{50%{transform:scaleY(1.25) scaleX(.85)}}
+.job.pre .ill svg *{animation:none;stroke-dashoffset:1}
+.job:hover .ill{border-color:var(--gold)}
+.ill figcaption{margin-top:6px;font:10px var(--f-mono);letter-spacing:.1em;color:var(--muted);text-align:right}
+.gal{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.gal .th{position:relative;width:86px;height:64px;border-radius:4px;overflow:hidden;border:1px solid var(--line);padding:0;background:none;cursor:zoom-in}
+.gal .th img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gal .th:hover img{transform:scale(1.1)}
+.gal .rmv{position:absolute;top:3px;right:3px;width:18px;height:18px;border-radius:50%;border:0;background:rgba(10,25,48,.85);color:var(--gold);font:700 11px/1 var(--f-body);cursor:pointer;display:grid;place-items:center}
+.gal .add{height:64px;padding:0 12px;border:1px dashed var(--gold);border-radius:4px;background:transparent;color:var(--gold);font:600 12px var(--f-body);cursor:pointer;display:flex;align-items:center;gap:6px;opacity:.75;transition:.2s}
+.gal .add:hover{opacity:1;background:rgba(212,175,55,.08)}
+.lbox{position:fixed;inset:0;z-index:80;background:rgba(5,12,24,.92);display:grid;place-items:center;padding:24px;cursor:zoom-out}
+.lbox img{max-width:100%;max-height:85vh;border:2px solid var(--gold);border-radius:4px}
+@media (max-width:700px){.job{grid-template-columns:minmax(0,1fr)}.ill{grid-column:1;grid-row:auto;margin-top:14px;max-width:340px}}
+@media print{.ill{background:#fff!important;border-color:#ddd!important;break-inside:avoid}.ill svg *{stroke:#8a6d17;animation:none!important;stroke-dashoffset:0}.ill svg .lt,.ill svg .gr,.ill svg .dim{stroke:#b9a560}.gal .add,.gal .rmv{display:none!important}.lbox{display:none!important}.job{grid-template-columns:minmax(0,1fr) 170px}}
+
+[hidden]{display:none!important}
+/* section switches */
+.sp{max-height:min(72vh,640px);overflow-y:auto;bottom:calc(250px + env(safe-area-inset-bottom,0px))}
+.sg{margin:12px 0 4px;font:600 11px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.si{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid var(--line);font-size:14px;cursor:pointer}
+.si.sub{padding-left:14px;font-size:13px;color:var(--muted)}
+.si.off span.n{opacity:.5;text-decoration:line-through}
+.sw{position:relative;flex:none;width:38px;height:22px;cursor:pointer}
+.sw input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.sw span{position:absolute;inset:0;border-radius:11px;background:rgba(159,176,200,.3);transition:.2s}
+.sw span::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--ink);transition:.2s}
+.sw input:checked + span{background:var(--gold)}
+.sw input:checked + span::after{transform:translateX(16px);background:var(--navy)}
+.sw input:focus-visible + span{outline:2px solid var(--gold);outline-offset:2px}
+.vm{display:flex;gap:12px;align-items:flex-start;margin-top:14px;padding:12px;border:1px dashed var(--gold);border-radius:6px}
+.vm b{display:block;font-size:14px}.vm small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.no-ill .ill{display:none}.no-ill .job{grid-template-columns:minmax(0,1fr)}
+.no-lb .lb,.no-lb .lbx{display:none}.no-lb .job{padding-left:22px}
+.no-gal .gal{display:none}
+.viewer .fabs,.viewer .panel,.viewer .ph-btns,.viewer .gal .add,.viewer .gal .rmv,.viewer .lbx{display:none!important}
+.viewer .lb{pointer-events:none}
+@media (max-width:560px){.sp{bottom:calc(240px + env(safe-area-inset-bottom,0px))}}
+
+/* password lock */
+.lock{display:none;margin-left:8px;width:22px;height:22px;padding:0;border:0;background:none;color:var(--muted);cursor:pointer;vertical-align:middle;opacity:.55;transition:.2s}
+.lock:hover{opacity:1;color:var(--gold)}
+.lock svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+.viewer .lock{display:inline-grid;place-items:center}
+.pwset{display:flex;flex-direction:column;gap:8px;margin-top:12px;padding:12px;border:1px solid var(--line);border-radius:6px}
+.pwset b{font-size:14px}.pwset small{font-size:12px;color:var(--muted)}
+.pwset input,.pwcard input{padding:9px 11px;border-radius:5px;border:1px solid var(--line);background:var(--navy);color:var(--ink);font:14px var(--f-body);min-width:0}
+.pwset .mini{align-self:flex-start}
+.pwbox{position:fixed;inset:0;z-index:90;background:rgba(5,12,24,.85);display:grid;place-items:center;padding:20px}
+.pwcard{width:min(340px,100%);padding:22px;border-radius:8px;background:var(--navy-2);border:1px solid var(--gold);display:flex;flex-direction:column;gap:10px}
+.pwcard h4{margin:0;font:700 22px var(--f-display);letter-spacing:.05em;text-transform:uppercase;color:var(--gold)}
+.pwcard p{margin:0;font-size:13px;color:var(--muted)}
+.pwerr{min-height:18px;font-size:13px;color:#f08a7a}
+.mini.solid{background:var(--gold);color:var(--navy)}
+@media print{.lock,.pwbox{display:none!important}}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;text-align:center;justify-items:center;padding-top:110px}
+  .chips{justify-content:center}.tag{margin-inline:auto}
+  .stats{grid-template-columns:repeat(2,1fr)}.stat{border-bottom:1px solid var(--line)}.stat:nth-child(2n){border-right:0}.stat:last-child{grid-column:1/-1;border-bottom:0}
+  .sk{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .links a{font-size:12px;padding:5px 6px}.logo{font-size:18px}
+  .cards{grid-template-columns:1fr}.avatar{width:130px;height:130px;font-size:52px}
+  .links{gap:0}
+}
+@media (max-width:480px){.links a:nth-child(1),.links a:nth-child(5){display:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.reveal.pre{transform:none;filter:none}}
+</style>
+
+<div class="bg" aria-hidden="true"><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div></div>
+
+<nav><div class="wrap">
+  <a class="logo" href="#home">A·RIZVE</a>
+  <div class="links">
+    <a href="#home">Home</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#automation">Automation</a><a href="#background">Background</a><a href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<main class="wrap">
+  <header class="hero" id="home">
+    <div class="av-wrap" data-sec="photo">
+      <div class="avatar" id="avatar" aria-label="Ashif Rizve photo or initials"><span id="initials">AR</span><img id="photo" alt="Ashif Rizve" hidden></div>
+      <div class="ph-btns">
+        <label class="mini" for="photoInput">Add Photo</label>
+        <input type="file" id="photoInput" accept="image/*" hidden>
+        <button class="mini" id="photoRemove" type="button" hidden>Remove</button>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow">Curriculum Vitae · Mechanical</div>
+      <h1 class="name" data-f="name">ASHIF RIZVE</h1>
+      <div class="role" data-f="role">Mechanical Manager</div>
+      <p class="tag" data-f="tagline" data-sec="tagline">20+ years leading EPC, oil &amp; gas, refinery and power plant projects across the Gulf and India — piping fabrication, erection, pre-commissioning and QA/QC to ASME &amp; AWS codes. Strong in site automation, building digital tools that replace manual paperwork.</p>
+      <div class="chips">
+        <span class="chip" data-sec="c-email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span data-f="email">ashifrizve@gmail.com</span></span>
+        <span class="chip" data-sec="c-phone"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span data-f="phone">+971 562811070</span></span>
+        <span class="chip" data-sec="c-loc"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span data-f="location">Abu Dhabi, UAE</span></span>
+        <span class="chip" data-sec="c-nat"><svg viewBox="0 0 24 24"><path d="M4 21V4m0 0h12l-2 4 2 4H4"/></svg>Indian</span>
+      </div>
+    </div>
+    <a class="hint" href="#stats"><span></span>SCROLL</a>
+  </header>
+
+  <div class="stats reveal" id="stats" data-sec="stats">
+    <div class="stat"><b data-n="20" data-s="+">20+</b><small>Years Experience</small></div>
+    <div class="stat"><b data-n="7">7</b><small>Major Projects</small></div>
+    <div class="stat"><b data-n="10" data-s="+">10+</b><small>Automation Tools</small></div>
+    <div class="stat"><b data-n="4">4</b><small>Countries</small></div>
+    <div class="stat"><b data-n="1320" data-s=" MW">1320 MW</b><small>Largest Plant</small></div>
+  </div>
+
+  <section id="experience" data-sec="s-experience">
+    <div class="sh"><h2>Experience</h2></div>
+    <div class="tl">
+      <article class="job now reveal" data-sec="j-pfc"><button class="lb" type="button" data-co="pfc" data-t="PFC" aria-label="Perfection Frontier Contracting logo — tap to add or change"><span>PFC</span></button><div class="top"><h3>Senior Mechanical Engineer</h3><span class="date">15 Aug 2026 – Present</span></div>
+        <div class="co">Perfection Frontier Contracting L.L.C. (PFC) · Abu Dhabi, UAE</div>
+        <div class="pj">Emirates Global Aluminium (EGA) — Building Construction Works</div><span class="spec">Client: EGA · Aluminium smelter</span><figure class="ill" aria-hidden="true"><svg viewBox="0 0 240 120"><line pathLength="1" class="gr" x1="4" y1="110" x2="236" y2="110"/><path pathLength="1" d="M10 110V56L100 42L190 56V110"/><path pathLength="1" d="M70 47V40H130V47"/><polyline pathLength="1" class="lt" points="10,66 20,56 30,66 40,56 50,66 60,56 70,66 80,56 90,66 100,56 110,66 120,56 130,66 140,56 150,66 160,56 170,66 180,56 190,66"/><line pathLength="1" class="lt" x1="30" y1="66" x2="30" y2="110"/><line pathLength="1" class="lt" x1="50" y1="66" x2="50" y2="110"/><line pathLength="1" class="lt" x1="70" y1="66" x2="70" y2="110"/><line pathLength="1" class="lt" x1="90" y1="66" x2="90" y2="110"/><line pathLength="1" class="lt" x1="110" y1="66" x2="110" y2="110"/><line pathLength="1" class="lt" x1="130" y1="66" x2="130" y2="110"/><line pathLength="1" class="lt" x1="150" y1="66" x2="150" y2="110"/><line pathLength="1" class="lt" x1="170" y1="66" x2="170" y2="110"/><rect pathLength="1" class="lt" x="16" y="96" width="14" height="14"/><rect pathLength="1" class="lt" x="36" y="96" width="14" height="14"/><rect pathLength="1" class="lt" x="56" y="96" width="14" height="14"/><rect pathLength="1" class="lt" x="76" y="96" width="14" height="14"/><rect pathLength="1" class="lt" x="96" y="96" width="14" height="14"/><rect pathLength="1" class="lt" x="116" y="96" width="14" height="14"/><rect pathLength="1" class="lt" x="136" y="96" width="14" height="14"/><rect pathLength="1" class="lt" x="156" y="96" width="14" height="14"/><rect pathLength="1" class="lt" x="176" y="96" width="14" height="14"/><path pathLength="1" d="M190 72H205"/><rect pathLength="1" x="205" y="18" width="13" height="92"/><line pathLength="1" class="lt" x1="205" y1="34" x2="218" y2="34"/><line pathLength="1" class="lt" x1="205" y1="42" x2="218" y2="42"/><path pathLength="1" class="lt" d="M211 14c-4-4 4-6 0-10"/></svg><figcaption>FIG. 1 · POTROOM &amp; FUME TREATMENT</figcaption></figure><div class="gal" data-job="pfc"></div></article>
+      <article class="job reveal" data-sec="j-heisco"><button class="lb" type="button" data-co="heisco" data-t="HEI" aria-label="HEISCO logo — tap to add or change"><span>HEI</span></button><div class="top"><h3>Manager Piping</h3><span class="date">Apr 2025 – Sep 2025</span></div>
+        <div class="co">HEISCO / ENPPI · Saudi Arabia</div>
+        <div class="pj">ARAMCO — C3/C4 Refrigeration Units &amp; Storage Tanks, Juaymah, Ras Tanura</div><span class="spec">C3/C4 refrigeration · storage tanks</span><figure class="ill" aria-hidden="true"><svg viewBox="0 0 240 120"><line pathLength="1" class="gr" x1="4" y1="110" x2="236" y2="110"/><circle pathLength="1" cx="50" cy="64" r="28"/><ellipse pathLength="1" class="lt" cx="50" cy="64" rx="28" ry="7"/><line pathLength="1" x1="28" y1="77" x2="28" y2="110"/><line pathLength="1" x1="42" y1="83" x2="42" y2="110"/><line pathLength="1" x1="58" y1="83" x2="58" y2="110"/><line pathLength="1" x1="72" y1="77" x2="72" y2="110"/><path pathLength="1" class="lt" d="M70 44L80 110"/><circle pathLength="1" cx="122" cy="64" r="28"/><ellipse pathLength="1" class="lt" cx="122" cy="64" rx="28" ry="7"/><line pathLength="1" x1="100" y1="77" x2="100" y2="110"/><line pathLength="1" x1="114" y1="83" x2="114" y2="110"/><line pathLength="1" x1="130" y1="83" x2="130" y2="110"/><line pathLength="1" x1="144" y1="77" x2="144" y2="110"/><path pathLength="1" class="lt" d="M142 44L152 110"/><path pathLength="1" d="M172 110V52Q197 40 222 52V110"/><line pathLength="1" class="lt" x1="172" y1="66" x2="222" y2="66"/><line pathLength="1" class="lt" x1="172" y1="82" x2="222" y2="82"/><line pathLength="1" class="lt" x1="172" y1="98" x2="222" y2="98"/><path pathLength="1" d="M78 100H94M150 100H172"/><circle pathLength="1" class="lt" cx="86" cy="100" r="3"/><circle pathLength="1" class="lt" cx="161" cy="100" r="3"/></svg><figcaption>FIG. 2 · C3/C4 SPHERES &amp; TANKS</figcaption></figure><div class="gal" data-job="heisco"></div></article>
+      <article class="job reveal" data-sec="j-doosan"><button class="lb" type="button" data-co="doosan" data-t="DPS" aria-label="Doosan Power Systems logo — tap to add or change"><span>DPS</span></button><div class="top"><h3>Manager (Mech) Piping</h3><span class="date">May 2022 – Mar 2025</span></div>
+        <div class="co">Doosan Power Systems India Pvt. Ltd · Uttar Pradesh, India</div>
+        <div class="pj">JVUNL — Jawaharpur Super Thermal Power Station</div><span class="spec">2 × 660 MW supercritical</span><figure class="ill" aria-hidden="true"><svg viewBox="0 0 240 120"><line pathLength="1" class="gr" x1="4" y1="110" x2="236" y2="110"/><path pathLength="1" d="M16 110Q36 70 28 26H82Q74 70 94 110"/><path pathLength="1" class="lt" d="M32 110Q41 70 40 26"/><path pathLength="1" class="lt" d="M44 110Q46 70 48 26"/><path pathLength="1" class="lt" d="M56 110Q51 70 56 26"/><path pathLength="1" class="lt" d="M68 110Q56 70 64 26"/><path pathLength="1" class="lt" d="M80 110Q61 70 72 26"/><path pathLength="1" class="lt" d="M36 20c-6-8 8-10 4-16M58 20c-6-8 8-10 4-16M76 20c-4-6 6-8 3-12"/><rect pathLength="1" x="110" y="8" width="11" height="102"/><line pathLength="1" class="lt" x1="110" y1="20" x2="121" y2="20"/><line pathLength="1" class="lt" x1="110" y1="28" x2="121" y2="28"/><rect pathLength="1" x="132" y="38" width="54" height="72"/><rect pathLength="1" class="lt" x="140" y="48" width="8" height="8"/><rect pathLength="1" class="lt" x="140" y="64" width="8" height="8"/><rect pathLength="1" class="lt" x="140" y="80" width="8" height="8"/><rect pathLength="1" class="lt" x="154" y="48" width="8" height="8"/><rect pathLength="1" class="lt" x="154" y="64" width="8" height="8"/><rect pathLength="1" class="lt" x="154" y="80" width="8" height="8"/><rect pathLength="1" class="lt" x="168" y="48" width="8" height="8"/><rect pathLength="1" class="lt" x="168" y="64" width="8" height="8"/><rect pathLength="1" class="lt" x="168" y="80" width="8" height="8"/><rect pathLength="1" x="186" y="64" width="48" height="46"/><path pathLength="1" class="lt" d="M186 64L210 54L234 64"/><path pathLength="1" class="lt" d="M196 96h28M200 88h20"/></svg><figcaption>FIG. 3 · 2×660 MW STATION</figcaption></figure><div class="gal" data-job="doosan"></div></article>
+      <article class="job reveal" data-sec="j-fdh1"><button class="lb" type="button" data-co="fdh" data-t="FDH" aria-label="Fluor Daewoo Hyundai JV logo — tap to add or change"><span>FDH</span></button><div class="top"><h3>Mechanical QA/QC Manager</h3><span class="date">Aug 2020 – Apr 2021</span></div>
+        <div class="co">HEISCO / Fluor Daewoo Hyundai JV (FDH JV) · Kuwait</div>
+        <div class="pj">KIPIC Al-Zour Refinery — Pre-Commissioning &amp; Erection</div><span class="spec">615,000 bpd refinery</span><figure class="ill" aria-hidden="true"><svg viewBox="0 0 240 120"><line pathLength="1" class="gr" x1="4" y1="110" x2="236" y2="110"/><path pathLength="1" d="M26 110V24Q33 14 40 24V110"/><path pathLength="1" class="lt" d="M22 46H46M22 70H46M22 92H46"/><path pathLength="1" d="M58 110V42Q67 32 76 42V110"/><path pathLength="1" class="lt" d="M54 62H80M54 84H80"/><path pathLength="1" d="M90 110V34Q95 28 100 34V110"/><path pathLength="1" class="lt" d="M110 78H200M110 88H200"/><line pathLength="1" x1="114" y1="78" x2="114" y2="110"/><line pathLength="1" x1="144" y1="78" x2="144" y2="110"/><line pathLength="1" x1="174" y1="78" x2="174" y2="110"/><line pathLength="1" x1="198" y1="78" x2="198" y2="110"/><rect pathLength="1" x="120" y="96" width="50" height="10" rx="5"/><line pathLength="1" x1="216" y1="12" x2="216" y2="110"/><path pathLength="1" class="lt" d="M212 110L216 40L220 110"/><path pathLength="1" class="fl" d="M216 12c-6-6 2-8 0-12c5 4 6 8 0 12z"/><path pathLength="1" class="lt" d="M40 30H58M76 50H90"/></svg><figcaption>FIG. 4 · COLUMNS &amp; FLARE</figcaption></figure><div class="gal" data-job="fdh1"></div></article>
+      <article class="job reveal" data-sec="j-fdh2"><button class="lb" type="button" data-co="fdh" data-t="FDH" aria-label="Fluor Daewoo Hyundai JV logo — tap to add or change"><span>FDH</span></button><div class="top"><h3>Mechanical Superintendent Piping</h3><span class="date">Sep 2018 – Jul 2020</span></div>
+        <div class="co">Fluor Daewoo Hyundai JV (FDH JV) · Kuwait</div>
+        <div class="pj">KIPIC Al-Zour Refinery — Erection</div><span class="spec">~20,000 peak site workforce</span><figure class="ill" aria-hidden="true"><svg viewBox="0 0 240 120"><line pathLength="1" class="gr" x1="4" y1="110" x2="236" y2="110"/><line pathLength="1" x1="14" y1="40" x2="14" y2="110"/><line pathLength="1" x1="54" y1="40" x2="54" y2="110"/><line pathLength="1" x1="94" y1="40" x2="94" y2="110"/><line pathLength="1" x1="134" y1="40" x2="134" y2="110"/><path pathLength="1" d="M10 52H138M10 76H138"/><circle pathLength="1" class="lt" cx="22" cy="47" r="5"/><circle pathLength="1" class="lt" cx="22" cy="71" r="5"/><circle pathLength="1" class="lt" cx="35" cy="47" r="5"/><circle pathLength="1" class="lt" cx="35" cy="71" r="5"/><circle pathLength="1" class="lt" cx="48" cy="47" r="5"/><circle pathLength="1" class="lt" cx="48" cy="71" r="5"/><circle pathLength="1" class="lt" cx="61" cy="47" r="5"/><circle pathLength="1" class="lt" cx="61" cy="71" r="5"/><circle pathLength="1" class="lt" cx="74" cy="47" r="5"/><circle pathLength="1" class="lt" cx="74" cy="71" r="5"/><circle pathLength="1" class="lt" cx="87" cy="47" r="5"/><circle pathLength="1" class="lt" cx="87" cy="71" r="5"/><circle pathLength="1" class="lt" cx="100" cy="47" r="5"/><circle pathLength="1" class="lt" cx="100" cy="71" r="5"/><circle pathLength="1" class="lt" cx="113" cy="47" r="5"/><circle pathLength="1" class="lt" cx="113" cy="71" r="5"/><circle pathLength="1" class="lt" cx="126" cy="47" r="5"/><circle pathLength="1" class="lt" cx="126" cy="71" r="5"/><path pathLength="1" d="M218 106L160 12"/><path pathLength="1" class="lt" d="M218 106L200 106L196 98H230L226 106"/><line pathLength="1" class="lt" x1="230" y1="102" x2="160" y2="12"/><line pathLength="1" x1="160" y1="12" x2="160" y2="30"/><rect pathLength="1" x="140" y="30" width="40" height="6"/><path pathLength="1" class="lt" d="M140 30L160 22L180 30"/></svg><figcaption>FIG. 5 · PIPE RACK ERECTION</figcaption></figure><div class="gal" data-job="fdh2"></div></article>
+      <article class="job reveal" data-sec="j-kjs"><button class="lb" type="button" data-co="kjs" data-t="KJS" aria-label="KJS Cement logo — tap to add or change"><span>KJS</span></button><div class="top"><h3>Sr. Mechanical Engineer Piping</h3><span class="date">Aug 2009 – May 2018</span></div>
+        <div class="co">KJS Cement Limited · Maihar, India</div>
+        <div class="pj">Captive Power Plant — Erection, Commissioning &amp; Maintenance</div><span class="spec">8 yrs 9 mos</span><figure class="ill" aria-hidden="true"><svg viewBox="0 0 240 120"><line pathLength="1" class="gr" x1="4" y1="110" x2="236" y2="110"/><rect pathLength="1" x="18" y="14" width="40" height="96"/><path pathLength="1" class="lt" d="M24 20H52L46 34H30Z"/><path pathLength="1" class="lt" d="M24 42H52L46 56H30Z"/><path pathLength="1" class="lt" d="M24 64H52L46 78H30Z"/><path pathLength="1" d="M58 72L186 92L186 104L58 84Z"/><circle pathLength="1" class="lt" cx="96" cy="84" r="9"/><circle pathLength="1" class="lt" cx="150" cy="93" r="9"/><line pathLength="1" class="lt" x1="96" y1="93" x2="96" y2="110"/><line pathLength="1" class="lt" x1="150" y1="102" x2="150" y2="110"/><path pathLength="1" d="M196 110V44Q205 36 214 44V110M214 110V44Q223 36 232 44V110"/><path pathLength="1" class="lt" d="M38 14V6M205 40V30H223V40"/></svg><figcaption>FIG. 6 · PREHEATER &amp; KILN</figcaption></figure><div class="gal" data-job="kjs"></div></article>
+      <article class="job reveal" data-sec="j-thermax"><button class="lb" type="button" data-co="thermax" data-t="TMX" aria-label="Thermax logo — tap to add or change"><span>TMX</span></button><div class="top"><h3>Mechanical Engineer, Erection &amp; Piping</h3><span class="date">Jun 2006 – Jul 2009</span></div>
+        <div class="co">M/s Thermax Ltd · Pune, India</div>
+        <div class="pj">Power plant and process projects — Erection &amp; Commissioning</div><span class="spec">Boilers · power plants</span><figure class="ill" aria-hidden="true"><svg viewBox="0 0 240 120"><line pathLength="1" class="gr" x1="4" y1="110" x2="236" y2="110"/><rect pathLength="1" x="18" y="20" width="84" height="18" rx="9"/><circle pathLength="1" class="lt" cx="27" cy="29" r="4"/><rect pathLength="1" x="28" y="46" width="64" height="64"/><path pathLength="1" class="lt" d="M38 38V46M52 38V46M68 38V46M82 38V46"/><line pathLength="1" class="lt" x1="36" y1="50" x2="36" y2="106"/><line pathLength="1" class="lt" x1="44" y1="50" x2="44" y2="106"/><line pathLength="1" class="lt" x1="52" y1="50" x2="52" y2="106"/><line pathLength="1" class="lt" x1="60" y1="50" x2="60" y2="106"/><line pathLength="1" class="lt" x1="68" y1="50" x2="68" y2="106"/><line pathLength="1" class="lt" x1="76" y1="50" x2="76" y2="106"/><line pathLength="1" class="lt" x1="84" y1="50" x2="84" y2="106"/><path pathLength="1" d="M102 30H130V70H170L190 50H232"/><path pathLength="1" class="lt" d="M126 26v8M134 26v8M126 66v8M134 66v8M186 46l6 6M226 46v8"/><path pathLength="1" d="M146 64l10 6v-12zM166 64l-10 6v-12z"/><line pathLength="1" class="lt" x1="156" y1="64" x2="156" y2="54"/><line pathLength="1" class="lt" x1="150" y1="54" x2="162" y2="54"/><circle pathLength="1" cx="206" cy="36" r="8"/><line pathLength="1" class="lt" x1="206" y1="36" x2="211" y2="31"/><line pathLength="1" class="lt" x1="206" y1="44" x2="206" y2="50"/><path pathLength="1" class="dim" d="M130 84H170M130 80v8M170 80v8"/><text x="150" y="96" class="dt">DN 200</text></svg><figcaption>FIG. 7 · BOILER &amp; PIPING</figcaption></figure><div class="gal" data-job="thermax"></div></article>
+    </div>
+  </section>
+
+  <section id="skills" data-sec="s-skills">
+    <div class="sh"><h2>Skills</h2></div>
+    <div class="sk">
+      <div class="cloud reveal" data-sec="sk-chips">
+        <span>Piping Fabrication &amp; Erection</span><span>Pre-Commissioning</span><span>QA/QC</span><span>ASME Codes</span><span>AWS Codes</span><span>NDT &amp; PWHT</span><span>PMI &amp; Hardness Testing</span><span>Welder Qualification</span><span>Manpower Planning</span><span>Third-Party Inspection</span><span>Hydro Test Procedures</span><span>Smart Plant &amp; Navis 3D</span><span>MS Office</span><span>Site Automation</span><span>Google Apps Script</span><span>Google Sheets Dashboards</span><span>AI Tools — Gemini &amp; Claude</span><span>Site Safety — PTW / LOTO / JHA</span>
+      </div>
+      <div class="reveal" data-sec="sk-bars">
+        <div class="bar"><div class="l">Mechanical Erection &amp; Piping<em>98%</em></div><div class="track"><div class="fill" style="width:98%"></div></div></div>
+        <div class="bar"><div class="l">QA/QC &amp; Inspection<em>95%</em></div><div class="track"><div class="fill" style="width:95%"></div></div></div>
+        <div class="bar"><div class="l">Team &amp; Project Management<em>94%</em></div><div class="track"><div class="fill" style="width:94%"></div></div></div>
+        <div class="bar"><div class="l">Pre-Commissioning<em>92%</em></div><div class="track"><div class="fill" style="width:92%"></div></div></div>
+        <div class="bar"><div class="l">Automation &amp; Digital Tools<em>95%</em></div><div class="track"><div class="fill" style="width:95%"></div></div></div>
+        <div class="bar"><div class="l">ASME / AWS Codes<em>95%</em></div><div class="track"><div class="fill" style="width:95%"></div></div></div>
+        <div class="bar"><div class="l">Site Safety — PTW / LOTO / JHA<em>93%</em></div><div class="track"><div class="fill" style="width:93%"></div></div></div>
+        <div class="bar"><div class="l">Documentation &amp; Reporting<em>92%</em></div><div class="track"><div class="fill" style="width:92%"></div></div></div>
+      </div>
+    </div>
+    <div class="radar reveal" data-sec="sk-radar"><div class="radar-h"><h3>Skill Profile</h3><span>Self-assessed proficiency · scale 50–100</span></div>
+      <div class="radar-box"><svg viewBox="-100 0 640 400" role="img" aria-label="Radar chart of skill proficiency"><polygon points="220.0,172.0 239.8,180.2 248.0,200.0 239.8,219.8 220.0,228.0 200.2,219.8 192.0,200.0 200.2,180.2" class="rg"/><text x="224.0" y="175.0" class="rt">60</text><polygon points="220.0,144.0 259.6,160.4 276.0,200.0 259.6,239.6 220.0,256.0 180.4,239.6 164.0,200.0 180.4,160.4" class="rg"/><text x="224.0" y="147.0" class="rt">70</text><polygon points="220.0,116.0 279.4,140.6 304.0,200.0 279.4,259.4 220.0,284.0 160.6,259.4 136.0,200.0 160.6,140.6" class="rg"/><text x="224.0" y="119.0" class="rt">80</text><polygon points="220.0,88.0 299.2,120.8 332.0,200.0 299.2,279.2 220.0,312.0 140.8,279.2 108.0,200.0 140.8,120.8" class="rg"/><text x="224.0" y="91.0" class="rt">90</text><polygon points="220.0,60.0 319.0,101.0 360.0,200.0 319.0,299.0 220.0,340.0 121.0,299.0 80.0,200.0 121.0,101.0" class="rg"/><text x="224.0" y="63.0" class="rt">100</text><line x1="220" y1="200" x2="220.0" y2="60.0" class="rg"/><line x1="220" y1="200" x2="319.0" y2="101.0" class="rg"/><line x1="220" y1="200" x2="360.0" y2="200.0" class="rg"/><line x1="220" y1="200" x2="319.0" y2="299.0" class="rg"/><line x1="220" y1="200" x2="220.0" y2="340.0" class="rg"/><line x1="220" y1="200" x2="121.0" y2="299.0" class="rg"/><line x1="220" y1="200" x2="80.0" y2="200.0" class="rg"/><line x1="220" y1="200" x2="121.0" y2="101.0" class="rg"/><g class="rp-g"><polygon points="220.0,65.6 309.1,110.9 346.0,200.0 309.1,289.1 220.0,323.2 134.9,285.1 102.4,200.0 136.8,116.8" class="rp"/><circle cx="220.0" cy="65.6" r="5" class="rd"/><circle cx="309.1" cy="110.9" r="5" class="rd"/><circle cx="346.0" cy="200.0" r="5" class="rd"/><circle cx="309.1" cy="289.1" r="5" class="rd"/><circle cx="220.0" cy="323.2" r="5" class="rd"/><circle cx="134.9" cy="285.1" r="5" class="rd"/><circle cx="102.4" cy="200.0" r="5" class="rd"/><circle cx="136.8" cy="116.8" r="5" class="rd"/></g><text x="220.0" y="27.6" text-anchor="middle" class="rl">Erection &amp; Piping <tspan class="rv">98</tspan></text><text x="344.7" y="79.3" text-anchor="start" class="rl">QA/QC <tspan class="rv">95</tspan></text><text x="396.4" y="204.0" text-anchor="start" class="rl">Automation <tspan class="rv">95</tspan></text><text x="344.7" y="328.7" text-anchor="start" class="rl">ASME / AWS <tspan class="rv">95</tspan></text><text x="220.0" y="380.4" text-anchor="middle" class="rl">Project Mgmt <tspan class="rv">94</tspan></text><text x="95.3" y="328.7" text-anchor="end" class="rl">Site Safety <tspan class="rv">93</tspan></text><text x="43.6" y="204.0" text-anchor="end" class="rl">Pre-Commissioning <tspan class="rv">92</tspan></text><text x="95.3" y="79.3" text-anchor="end" class="rl">Documentation <tspan class="rv">92</tspan></text></svg></div></div>
+    <div class="radar plants reveal" data-sec="sk-plants"><div class="radar-h"><h3>Plant Experience Matrix</h3><span>Type of plant × type of work</span></div>
+      <div class="pt-box"><table class="pt"><thead><tr><th></th><th scope="col">Erection</th><th scope="col">Piping Fab. &amp; Erection</th><th scope="col">Pre-Comm. / Comm.</th><th scope="col">QA/QC &amp; Inspection</th><th scope="col">Maintenance</th><th scope="col">Structural &amp; Building</th><th scope="col">Team Leadership</th><th scope="col">Work areas</th></tr></thead><tbody><tr><th scope="row"><b>Aluminium Smelter</b><small>EGA · Abu Dhabi</small></th><td><span class="pm" aria-label="No"></span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm on" style="--d:0.00s" aria-label="Yes">✓</span></td><td><span class="pm on" style="--d:0.06s" aria-label="Yes">✓</span></td><td class="pn">2</td></tr><tr><th scope="row"><b>Gas Processing &amp; Storage</b><small>ARAMCO C3/C4 Refrigeration &amp; Tanks</small></th><td><span class="pm on" style="--d:0.12s" aria-label="Yes">✓</span></td><td><span class="pm on" style="--d:0.18s" aria-label="Yes">✓</span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm on" style="--d:0.24s" aria-label="Yes">✓</span></td><td class="pn">3</td></tr><tr><th scope="row"><b>Supercritical Thermal Power</b><small>JVUNL 2×660 MW · Doosan</small></th><td><span class="pm on" style="--d:0.30s" aria-label="Yes">✓</span></td><td><span class="pm on" style="--d:0.36s" aria-label="Yes">✓</span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm on" style="--d:0.42s" aria-label="Yes">✓</span></td><td class="pn">3</td></tr><tr><th scope="row"><b>Oil Refinery</b><small>KIPIC Al-Zour 615,000 bpd · FDH JV</small></th><td><span class="pm on" style="--d:0.48s" aria-label="Yes">✓</span></td><td><span class="pm on" style="--d:0.54s" aria-label="Yes">✓</span></td><td><span class="pm on" style="--d:0.60s" aria-label="Yes">✓</span></td><td><span class="pm on" style="--d:0.66s" aria-label="Yes">✓</span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm on" style="--d:0.72s" aria-label="Yes">✓</span></td><td class="pn">5</td></tr><tr><th scope="row"><b>Cement &amp; Captive Power Plant</b><small>KJS Cement · Maihar</small></th><td><span class="pm on" style="--d:0.78s" aria-label="Yes">✓</span></td><td><span class="pm on" style="--d:0.84s" aria-label="Yes">✓</span></td><td><span class="pm on" style="--d:0.90s" aria-label="Yes">✓</span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm on" style="--d:0.96s" aria-label="Yes">✓</span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm" aria-label="No"></span></td><td class="pn">4</td></tr><tr><th scope="row"><b>Boiler &amp; Power Plant Projects</b><small>Thermax Ltd · Pune</small></th><td><span class="pm on" style="--d:1.02s" aria-label="Yes">✓</span></td><td><span class="pm on" style="--d:1.08s" aria-label="Yes">✓</span></td><td><span class="pm on" style="--d:1.14s" aria-label="Yes">✓</span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm" aria-label="No"></span></td><td><span class="pm" aria-label="No"></span></td><td class="pn">3</td></tr></tbody><tfoot><tr><th></th><td>5 plants</td><td>5 plants</td><td>3 plants</td><td>1 plant</td><td>1 plant</td><td>1 plant</td><td>4 plants</td><td></td></tr></tfoot></table></div></div>
+  </section>
+
+  <section id="automation" data-sec="s-automation">
+    <div class="sh"><h2>Automation</h2></div>
+    <p class="tag reveal" style="margin-top:-14px">Web-based tools I designed and built (Google Sheets + Apps Script + AI) for construction site management at EGA.</p>
+    <div class="cards">
+      <div class="card reveal" data-sec="a-ptw"><h3><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="m9 14 2 2 4-4"/></svg>PTW Tracker</h3><ul><li>Permit to Work tracking with management dashboard</li><li>Permit types, PTW numbers, sign-on</li></ul></div>
+      <div class="card reveal" data-sec="a-shift"><h3><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Shift Trackers</h3><ul><li>Night &amp; day shift targets and status</li><li>Manpower, material, photos</li><li>Automatic daily reports</li></ul></div>
+      <div class="card reveal" data-sec="a-pot"><h3><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 10h18M9 4v16M15 4v16"/></svg>Potline Register</h3><ul><li>Potline 1–3 cell relining status</li><li>Graphical cell-layout report</li></ul></div>
+      <div class="card reveal" data-sec="a-msra"><h3><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="M9 12h6M12 9v6"/></svg>MSRA Generator</h3><ul><li>EGA-format Method Statement &amp; Risk Assessment</li><li>Generated by AI from one line of work</li></ul></div>
+      <div class="card reveal" data-sec="a-att"><h3><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c.8-3.5 3.2-5 6-5s5.2 1.5 6 5M15 15.5c2.6 0 4.6 1.3 5.5 4.5"/></svg>Worker Attendance</h3><ul><li>Self-attendance for ~700 workers</li><li>ID-based login, multi-language</li></ul></div>
+      <div class="card reveal" data-sec="a-admin"><h3><svg viewBox="0 0 24 24"><path d="M3 13h13l3-4h2v8h-2M3 13v4h2M7 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0M15 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0"/></svg>Site Admin Apps</h3><ul><li>Camp management</li><li>Vehicle requests with SMS to drivers</li><li>Payslip manager</li></ul></div>
+    </div>
+  </section>
+
+  <section id="background" data-sec="s-background">
+    <div class="sh"><h2>Background</h2></div>
+    <div class="cards">
+      <div class="card reveal" data-sec="b-edu"><h3><svg viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg>Education</h3><ul><li>Diploma in Mechanical Engineering — First Class</li><li>Diploma in Computer Application (DCA)</li><li>Advanced Diploma in Computer Hardware &amp; Networking (ADCHN)</li></ul></div>
+      <div class="card reveal" data-sec="b-soft"><h3><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg>Software</h3><ul><li>MS Office — Word, Excel, PowerPoint, Access</li><li>Smart Plant &amp; Navis 3D</li><li>Google Sheets &amp; Apps Script</li></ul></div>
+      <div class="card reveal" data-sec="b-safe"><h3><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>Safety Training</h3><ul><li>Permit to Work (PTW)</li><li>Lock Out Tag Out (LOTO)</li><li>Job Hazard Analysis (JHA)</li><li>Confined Space Entry</li><li>Lifting &amp; Rigging Awareness</li></ul></div>
+      <div class="card reveal" data-sec="b-doc"><h3><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></svg>Documentation</h3><ul><li>Inspection requests &amp; material certificates</li><li>Spool and joint numbering</li><li>Fit-up, visual &amp; final inspection reports</li><li>Welder qualification certificates</li><li>Painting reports &amp; final dossiers</li></ul></div>
+      <div class="card reveal" data-sec="b-lang"><h3><svg viewBox="0 0 24 24"><path d="M4 5h9M8 3v2m3 0c-1 5-4 8-7 9m3-5c1.5 2 4 4 6 5"/><path d="m12 21 4-9 4 9m-6.5-3h5"/></svg>Languages</h3><ul><li>English</li><li>Hindi</li></ul></div>
+      <div class="card reveal" data-sec="b-pers"><h3><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>Personal</h3><ul><li>Nationality: Indian</li><li data-sec="dob">Date of Birth: 28.11.1982</li><li>Marital Status: Married</li><li>Home: Lucknow, Uttar Pradesh</li></ul></div>
+    </div>
+  </section>
+
+  <section id="contact" data-sec="s-contact">
+    <div class="contact reveal">
+      <div class="sh" style="justify-content:center;margin-bottom:0"><h2>Let's Work Together</h2></div>
+      <p>Available for mechanical, piping and QA/QC leadership roles on EPC, refinery, power and industrial projects.</p>
+      <div class="btns">
+        <a class="btn solid" id="lnEmail" href="mailto:ashifrizve@gmail.com" data-copy="ashifrizve@gmail.com">Email <small data-f="email">ashifrizve@gmail.com</small></a>
+        <a class="btn" id="lnPhone" href="tel:+971562811070" data-copy="+971 562811070">UAE <small data-f="phone">+971 562811070</small></a>
+        <a class="btn" id="lnWa" href="https://wa.me/917607068585" target="_blank" rel="noopener" data-copy="+91 7607068585">WhatsApp <small data-f="whatsapp">+91 7607068585</small></a>
+      </div>
+      <div class="copied" id="copied" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+
+<footer data-sec="footer"><b data-f="name">ASHIF RIZVE</b><button class="lock" id="lockBtn" type="button" aria-label="Owner login"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></button> · <span data-f="role">Mechanical Manager</span> · <span data-f="location">Abu Dhabi, UAE</span></footer>
+
+<div class="panel" id="panel" hidden role="dialog" aria-label="Edit resume by voice or text">
+  <h4>Edit Resume</h4>
+  <p>Tap the mic and speak, or type a command and press Enter.</p>
+  <div class="row">
+    <input id="cmd" type="text" placeholder="change phone to +971 50 123 4567" autocomplete="off">
+    <button class="mic" id="mic" type="button" aria-label="Speak a correction"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+  </div>
+  <div class="heard" id="heard" aria-live="polite"></div>
+  <ul class="ex">
+    <li>change phone to …</li><li>change email to …</li><li>change whatsapp to …</li>
+    <li>change role to …</li><li>change name to …</li><li>change location to …</li><li>change tagline to …</li>
+  </ul>
+  <div class="prow">
+    <button class="mini" id="saveCopy" type="button">Save edited file</button>
+    <button class="mini" id="resetAll" type="button">Undo all edits</button>
+  </div>
+</div>
+
+<div class="panel sp" id="secPanel" hidden role="dialog" aria-label="Show or hide sections">
+  <h4>Show / Hide Sections</h4>
+  <p>Switch off any part you don't want on the website or in the PDF.</p>
+  <div id="secList"></div>
+  <div class="vm"><label class="sw"><input type="checkbox" id="viewerMode"><span></span></label><div><b>Visitor mode</b><small>Hides all edit buttons before you publish. To switch it off, click the lock next to your name at the bottom of the page and enter your password.</small></div></div>
+  <div class="pwset">
+    <b>Password lock</b><small id="pwState">No password set yet. Set one so only you can switch Visitor mode off.</small>
+    <input type="password" id="pwOld" placeholder="Current password" autocomplete="current-password" hidden>
+    <input type="password" id="pwNew" placeholder="New password (min 4 characters)" autocomplete="new-password">
+    <input type="password" id="pwNew2" placeholder="Type new password again" autocomplete="new-password">
+    <button class="mini" id="pwSave" type="button">Set password</button>
+  </div>
+  <div class="prow"><button class="mini" id="showAll" type="button">Show everything</button><button class="mini" id="saveCopy2" type="button">Save edited file</button><button class="mini solid" id="saveVisitor" type="button">Save visitor copy</button></div>
+</div>
+<div class="fabs">
+  <button class="fab ghost" id="secBtn" type="button"><svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Sections</button>
+  <button class="fab ghost" id="editBtn" type="button"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Edit</button>
+  <button class="fab" id="pdfBtn" type="button"><svg viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M8 14h8v7H8z"/></svg>PDF / Print</button>
+</div>
+<div class="pwbox" id="pwBox" hidden role="dialog" aria-modal="true" aria-labelledby="pwTitle">
+  <form class="pwcard" id="pwForm">
+    <h4 id="pwTitle">Owner login</h4>
+    <p>Enter your password to switch Visitor mode off and show the edit buttons.</p>
+    <input type="password" id="pwIn" placeholder="Password" autocomplete="current-password">
+    <div class="pwerr" id="pwErr" aria-live="polite"></div>
+    <div class="prow"><button class="mini" type="button" id="pwCancel">Cancel</button><button class="mini solid" type="submit">Unlock</button></div>
+  </form>
+</div>
+<div class="toast" id="toast" hidden aria-live="polite"></div>
+
+<script type="application/json" id="baked">{"viewer":false,"ts":1793034690745}</script>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // reveal: content stays visible; only position/blur animates in
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if('IntersectionObserver' in window && !reduce){
+    var vh=innerHeight;
+    els.forEach(function(e){ if(e.getBoundingClientRect().top>vh) e.classList.add('pre'); });
+    var io=new IntersectionObserver(function(ents){
+      ents.forEach(function(en){
+        if(!en.isIntersecting) return;
+        var t=en.target; t.classList.remove('pre');
+        t.querySelectorAll('.fill').forEach(function(f){f.classList.remove('go');void f.offsetWidth;f.classList.add('go');});
+        t.querySelectorAll('[data-n]').forEach(count);
+        t.querySelectorAll('.pm.on').forEach(function(m){m.style.animation='none';void m.offsetWidth;m.style.animation='';});t.querySelectorAll('.ill svg *').forEach(function(m){m.style.animation='none';void m.getBoundingClientRect();m.style.animation='';});var rg=t.querySelector('.rp-g');if(rg){rg.style.animation='none';void rg.getBoundingClientRect();rg.style.animation='';}
+        io.unobserve(t);
+      });
+    },{threshold:.15});
+    els.forEach(function(e){io.observe(e);});
+  }
+  function count(el){
+    var n=+el.dataset.n,s=el.dataset.s||'',t0=null;
+    function step(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/1400,1); el.textContent=Math.round(n*(1-Math.pow(1-p,3)))+s; if(p<1)requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+  // stagger skill chips
+  document.querySelectorAll('.cloud span').forEach(function(s,i){s.style.animationDelay=(i*.05)+'s';});
+  var inFrame=false; try{inFrame=window.self!==window.top;}catch(e){inFrame=true;}
+  var toastEl=document.getElementById('toast'),tt;
+  function toast(m,ms){toastEl.textContent=m;toastEl.hidden=false;clearTimeout(tt);tt=setTimeout(function(){toastEl.hidden=true;},ms||3200);}
+  var KEY='ar-resume-v1';
+  function load(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}}
+  function save(st){st.ts=Date.now();try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+  var stored=load(),baked={};try{baked=JSON.parse(document.getElementById('baked').textContent)||{};}catch(e){}
+  var state=(baked.ts||0)>(stored.ts||0)?Object.assign({},stored,baked):stored;
+
+  /* ---- fields ---- */
+  var LABEL={name:'Name',role:'Role',tagline:'Tagline',email:'Email',phone:'Phone number',whatsapp:'WhatsApp number',location:'Location'};
+  function setField(k,v,quiet){
+    document.querySelectorAll('[data-f="'+k+'"]').forEach(function(el){el.textContent=v;});
+    var d=v.replace(/[^\d+]/g,'');
+    if(k==='email'){var a=document.getElementById('lnEmail');a.href='mailto:'+v;a.dataset.copy=v;}
+    if(k==='phone'){var p=document.getElementById('lnPhone');p.href='tel:'+d;p.dataset.copy=v;}
+    if(k==='whatsapp'){var w=document.getElementById('lnWa');w.href='https://wa.me/'+d.replace('+','');w.dataset.copy=v;}
+    if(k==='name'){var ini=v.split(/\s+/).filter(Boolean).map(function(s){return s[0];}).join('').slice(0,2).toUpperCase();if(ini)document.getElementById('initials').textContent=ini;}
+    if(!quiet){state.f=state.f||{};state.f[k]=v;save(state);}
+  }
+  if(state.f)Object.keys(state.f).forEach(function(k){setField(k,state.f[k],true);});
+
+  /* ---- command parsing (spoken or typed) ---- */
+  var ALIAS=[['whatsapp','whatsapp'],['what\'s app','whatsapp'],['mobile','phone'],['phone','phone'],['number','phone'],['e-mail','email'],['email','email'],['mail','email'],['designation','role'],['title','role'],['position','role'],['role','role'],['name','name'],['location','location'],['city','location'],['address','location'],['tagline','tagline'],['tag line','tagline'],['summary','tagline'],['objective','tagline']];
+  function tidy(k,v){
+    v=v.trim().replace(/[.。]$/,'');
+    if(k==='email'){v=v.toLowerCase().replace(/\s+at the rate\s+|\s+at\s+/g,'@').replace(/\s+dot\s+/g,'.').replace(/\s+/g,'');}
+    else if(k==='phone'||k==='whatsapp'){v=v.replace(/\bplus\b/gi,'+').replace(/[^\d+ ]/g,'').replace(/\s+/g,' ').trim();}
+    else if(k==='name'){v=v.toUpperCase();}
+    else if(k==='role'||k==='location'){v=v.replace(/\b\w/g,function(c){return c.toUpperCase();});}
+    else {v=v.charAt(0).toUpperCase()+v.slice(1);}
+    return v;
+  }
+  function run(text){
+    var t=text.trim(),low=t.toLowerCase();
+    var m=low.match(/(?:change|update|set|replace|make)\s+(?:my\s+|the\s+)?(.+?)\s+(?:to|as|into|=)\s+(.+)$/);
+    if(!m){toast('Not understood. Try: "change phone to 050 123 4567"',4500);return false;}
+    var key=null;ALIAS.some(function(a){if(m[1].indexOf(a[0])>-1){key=a[1];return true;}});
+    if(!key){toast('Which field? Say phone, email, whatsapp, role, name, location or tagline.',4500);return false;}
+    var raw=t.slice(t.length-m[2].length);
+    var val=tidy(key,raw);
+    if(!val){toast('No new value heard. Please try again.');return false;}
+    setField(key,val);toast('Updated '+LABEL[key]+': '+val);return true;
+  }
+  var panel=document.getElementById('panel'),cmd=document.getElementById('cmd'),heard=document.getElementById('heard');
+  document.getElementById('editBtn').addEventListener('click',function(){panel.hidden=!panel.hidden;if(!panel.hidden)cmd.focus();});
+  cmd.addEventListener('keydown',function(e){if(e.key==='Enter'&&cmd.value.trim()){heard.textContent='You typed: '+cmd.value;if(run(cmd.value))cmd.value='';}});
+  var SR=window.SpeechRecognition||window.webkitSpeechRecognition,mic=document.getElementById('mic'),rec=null,listening=false;
+  mic.addEventListener('click',function(){
+    if(!SR){toast('Voice is not supported in this browser. Open the file in Chrome or Edge, or type the command.',5000);return;}
+    if(listening){rec.stop();return;}
+    rec=new SR();rec.lang='en-IN';rec.interimResults=true;rec.maxAlternatives=1;
+    rec.onstart=function(){listening=true;mic.classList.add('on');heard.textContent='Listening…';};
+    rec.onresult=function(e){var r=e.results[e.results.length-1];heard.textContent='Heard: "'+r[0].transcript+'"';if(r.isFinal){cmd.value=r[0].transcript;if(run(r[0].transcript))cmd.value='';}};
+    rec.onerror=function(e){heard.textContent='';toast(e.error==='not-allowed'||e.error==='service-not-allowed'?'Microphone blocked. Download the file, open it in Chrome or Edge, and allow the mic.':'Could not hear clearly. Please try again.',5000);};
+    rec.onend=function(){listening=false;mic.classList.remove('on');};
+    try{rec.start();}catch(err){toast('Could not start the microphone here. Type the command instead.');}
+  });
+
+  /* ---- photo (optional) ---- */
+  var img=document.getElementById('photo'),ini=document.getElementById('initials'),rm=document.getElementById('photoRemove');
+  function showPhoto(src){if(src){img.src=src;img.hidden=false;ini.hidden=true;rm.hidden=false;}else{img.removeAttribute('src');img.hidden=true;ini.hidden=false;rm.hidden=true;}}
+  if(state.photo)showPhoto(state.photo);
+  document.getElementById('photoInput').addEventListener('change',function(e){
+    var f=e.target.files[0];if(!f)return;
+    var r=new FileReader();r.onload=function(){
+      var im=new Image();im.onload=function(){
+        var s=400,c=document.createElement('canvas');c.width=c.height=s;var x=c.getContext('2d');
+        var m=Math.min(im.width,im.height);x.drawImage(im,(im.width-m)/2,(im.height-m)/2,m,m,0,0,s,s);
+        var url=c.toDataURL('image/jpeg',.85);showPhoto(url);state.photo=url;save(state);toast('Photo added');
+      };im.src=r.result;
+    };r.readAsDataURL(f);e.target.value='';
+  });
+  rm.addEventListener('click',function(){showPhoto(null);delete state.photo;save(state);toast('Photo removed — showing initials');});
+
+  /* ---- print / pdf ---- */
+  document.getElementById('pdfBtn').addEventListener('click',function(){
+    document.querySelectorAll('.reveal.pre').forEach(function(e){e.classList.remove('pre');});
+    if(inFrame){toast('Printing works in the downloaded file. Open it in Chrome or Edge, click PDF / Print, then choose "Save as PDF".',6000);}
+    try{window.print();}catch(e){}
+  });
+
+  /* ---- save edited copy & reset ---- */
+  document.getElementById('saveCopy').addEventListener('click',function(){
+    if(inFrame){toast('Saving works in the downloaded file opened in your browser.',5000);return;}
+    document.querySelectorAll('.reveal.pre').forEach(function(e){e.classList.remove('pre');});
+    panel.hidden=true;toastEl.hidden=true;
+    document.getElementById('baked').textContent=JSON.stringify(state).replace(/</g,'\\u003c');secPanel.hidden=true;
+    var html='<!doctype html>\n'+document.documentElement.outerHTML;
+    var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));
+    a.download='Ashif_Rizve_Resume_Website.html';document.body.appendChild(a);a.click();a.remove();
+    toast('Edited file saved to your Downloads');
+  });
+  document.getElementById('resetAll').addEventListener('click',function(){
+    try{localStorage.removeItem(KEY);}catch(e){}
+    toast('Edits cleared — reloading');setTimeout(function(){location.reload();},900);
+  });
+
+  /* ---- company logo badges ---- */
+  var lfile=document.createElement('input');lfile.type='file';lfile.accept='image/*';lfile.hidden=true;document.body.appendChild(lfile);
+  var curCo=null;state.logos=state.logos||{};
+  function paintBadges(){
+    document.querySelectorAll('.lb').forEach(function(b){
+      var co=b.dataset.co,src=state.logos[co],x=b.parentNode.querySelector('.lbx');
+      b.innerHTML='';
+      if(src){var im=document.createElement('img');im.src=src;im.alt='';b.appendChild(im);}
+      else{var sp=document.createElement('span');sp.textContent=b.dataset.t;b.appendChild(sp);}
+      if(src&&!x){x=document.createElement('button');x.type='button';x.className='lbx';x.textContent='×';x.setAttribute('aria-label','Remove logo');
+        x.addEventListener('click',function(){delete state.logos[co];save(state);paintBadges();toast('Logo removed');});b.parentNode.appendChild(x);}
+      if(!src&&x)x.remove();
+    });
+  }
+  document.querySelectorAll('.lb').forEach(function(b){b.addEventListener('click',function(){curCo=b.dataset.co;lfile.click();});});
+  lfile.addEventListener('change',function(e){
+    var f=e.target.files[0];if(!f||!curCo)return;
+    var r=new FileReader();r.onload=function(){
+      var im=new Image();im.onload=function(){
+        var s=240,c=document.createElement('canvas'),sc=Math.min(s/im.width,s/im.height);c.width=Math.round(im.width*sc);c.height=Math.round(im.height*sc);
+        var x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(im,0,0,c.width,c.height);
+        state.logos[curCo]=c.toDataURL('image/png');save(state);paintBadges();toast('Logo added');
+      };im.src=r.result;
+    };r.readAsDataURL(f);lfile.value='';
+  });
+  paintBadges();
+
+  /* ---- site photos per job ---- */
+  state.gal=state.gal||{};
+  var gfile=document.createElement('input');gfile.type='file';gfile.accept='image/*';gfile.multiple=true;gfile.hidden=true;document.body.appendChild(gfile);
+  var gJob=null,MAXP=4;
+  function paintGal(){
+    document.querySelectorAll('.gal').forEach(function(g){
+      var k=g.dataset.job,list=state.gal[k]||[];g.innerHTML='';
+      list.forEach(function(src,idx){
+        var b=document.createElement('button');b.type='button';b.className='th';b.setAttribute('aria-label','View photo');
+        var im=document.createElement('img');im.src=src;im.alt='Site photo';b.appendChild(im);
+        b.addEventListener('click',function(){var o=document.createElement('div');o.className='lbox';var bi=document.createElement('img');bi.src=src;bi.alt='Site photo';o.appendChild(bi);o.addEventListener('click',function(){o.remove();});document.body.appendChild(o);});
+        var x=document.createElement('span');x.className='rmv';x.textContent='×';x.setAttribute('role','button');x.setAttribute('aria-label','Remove photo');
+        x.addEventListener('click',function(e){e.stopPropagation();list.splice(idx,1);state.gal[k]=list;save(state);paintGal();toast('Photo removed');});
+        b.appendChild(x);g.appendChild(b);
+      });
+      if(list.length<MAXP){var a=document.createElement('button');a.type='button';a.className='add';a.innerHTML='<span aria-hidden="true">+</span> Add site photos';
+        a.addEventListener('click',function(){gJob=k;gfile.click();});g.appendChild(a);}
+    });
+  }
+  function shrink(f,cb){var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var m=900,sc=Math.min(1,m/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*sc);c.height=Math.round(im.height*sc);c.getContext('2d').drawImage(im,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',.78));};im.src=r.result;};r.readAsDataURL(f);}
+  gfile.addEventListener('change',function(e){
+    var fs=[].slice.call(e.target.files);if(!fs.length||!gJob)return;
+    var list=state.gal[gJob]=state.gal[gJob]||[],left=MAXP-list.length;fs=fs.slice(0,left);var n=fs.length;
+    fs.forEach(function(f){shrink(f,function(u){list.push(u);if(--n===0){state.gal[gJob]=list;save(state);paintGal();toast(fs.length+' photo'+(fs.length>1?'s':'')+' added');}});});
+    gfile.value='';
+  });
+  paintGal();
+
+  /* ---- show / hide sections ---- */
+  var SECS=[['Top of page',[['photo','Photo / initials circle'],['tagline','Tagline'],['c-email','Email chip'],['c-phone','Phone chip'],['c-loc','Location chip'],['c-nat','Nationality chip'],['stats','Number counters']]],
+   ['Experience',[['s-experience','Whole Experience section',1],['j-pfc','PFC · Senior Mechanical Engineer'],['j-heisco','HEISCO · Manager Piping'],['j-doosan','Doosan · Manager (Mech) Piping'],['j-fdh1','FDH JV · QA/QC Manager'],['j-fdh2','FDH JV · Superintendent Piping'],['j-kjs','KJS Cement · Sr. Mech. Engineer'],['j-thermax','Thermax · Mechanical Engineer'],['x-lb','Company badges'],['x-ill','Plant drawings'],['x-gal','Site photos']]],
+   ['Skills',[['s-skills','Whole Skills section',1],['sk-chips','Skill chips'],['sk-bars','Skill bars'],['sk-radar','Skill Profile radar'],['sk-plants','Plant Experience Matrix']]],
+   ['Automation',[['s-automation','Whole Automation section',1],['a-ptw','PTW Tracker'],['a-shift','Shift Trackers'],['a-pot','Potline Register'],['a-msra','MSRA Generator'],['a-att','Worker Attendance'],['a-admin','Site Admin Apps']]],
+   ['Background',[['s-background','Whole Background section',1],['b-edu','Education'],['b-soft','Software'],['b-safe','Safety Training'],['b-doc','Documentation'],['b-lang','Languages'],['b-pers','Personal details'],['dob','Date of Birth line']]],
+   ['Contact',[['s-contact','Contact section',1],['footer','Footer']]]];
+  state.hide=state.hide||{};
+  var root=document.documentElement;
+  function applyHide(){
+    document.querySelectorAll('[data-sec]').forEach(function(el){el.hidden=!!state.hide[el.dataset.sec];});
+    root.classList.toggle('no-lb',!!state.hide['x-lb']);root.classList.toggle('no-ill',!!state.hide['x-ill']);root.classList.toggle('no-gal',!!state.hide['x-gal']);
+    document.querySelectorAll('.links a').forEach(function(a){var id=a.getAttribute('href').slice(1);a.hidden=!!state.hide['s-'+id];});
+    document.querySelectorAll('#secList .si').forEach(function(row){var on=!state.hide[row.dataset.k];row.classList.toggle('off',!on);row.querySelector('input').checked=on;});
+  }
+  var list=document.getElementById('secList');
+  SECS.forEach(function(g){
+    var h=document.createElement('div');h.className='sg';h.textContent=g[0];list.appendChild(h);
+    g[1].forEach(function(it){
+      var row=document.createElement('label');row.className='si'+(it[2]?'':' sub');row.dataset.k=it[0];
+      row.innerHTML='<span class="n"></span><span class="sw"><input type="checkbox" id="sw-'+it[0]+'"><span></span></span>';
+      row.querySelector('.n').textContent=it[1];
+      row.querySelector('input').addEventListener('change',function(e){if(e.target.checked)delete state.hide[it[0]];else state.hide[it[0]]=true;save(state);applyHide();});
+      list.appendChild(row);
+    });
+  });
+  applyHide();
+  var secPanel=document.getElementById('secPanel');
+  document.getElementById('secBtn').addEventListener('click',function(){secPanel.hidden=!secPanel.hidden;document.getElementById('panel').hidden=true;});
+  document.getElementById('editBtn').addEventListener('click',function(){secPanel.hidden=true;});
+  document.getElementById('showAll').addEventListener('click',function(){state.hide={};save(state);applyHide();toast('All sections shown');});
+  /* visitor mode */
+  var vm=document.getElementById('viewerMode');
+  async function hashPw(t){
+    var str='ar-resume:'+t;
+    try{var b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0');}).join('');}
+    catch(e){var h=2166136261;for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return 'f'+(h>>>0).toString(16);}
+  }
+  function applyViewer(){root.classList.toggle('viewer',!!state.viewer);vm.checked=!!state.viewer;}
+  vm.addEventListener('change',function(){
+    if(vm.checked&&!state.pw){vm.checked=false;toast('Set a password first (just below), then switch Visitor mode on.',5000);document.getElementById('pwNew').focus();return;}
+    state.viewer=vm.checked;save(state);if(vm.checked)secPanel.hidden=true;applyViewer();
+    toast(vm.checked?'Visitor mode on. Click the lock next to your name at the bottom to unlock.':'Visitor mode off');
+  });
+  /* set / change password */
+  var pwOld=document.getElementById('pwOld'),pwNew=document.getElementById('pwNew'),pwNew2=document.getElementById('pwNew2'),pwSt=document.getElementById('pwState'),pwBtn=document.getElementById('pwSave');
+  function paintPw(){var has=!!state.pw;pwOld.hidden=!has;pwBtn.textContent=has?'Change password':'Set password';pwSt.textContent=has?'Password is set. Visitor mode can only be switched off with it.':'No password set yet. Set one so only you can switch Visitor mode off.';}
+  pwBtn.addEventListener('click',async function(){
+    if(state.pw&&await hashPw(pwOld.value)!==state.pw){toast('Current password is wrong.');return;}
+    if(pwNew.value.length<4){toast('Use at least 4 characters.');return;}
+    if(pwNew.value!==pwNew2.value){toast('The two new passwords do not match.');return;}
+    state.pw=await hashPw(pwNew.value);save(state);pwOld.value=pwNew.value=pwNew2.value='';paintPw();toast('Password saved');
+  });
+  paintPw();
+  /* unlock dialog */
+  var pwBox=document.getElementById('pwBox'),pwIn=document.getElementById('pwIn'),pwErr=document.getElementById('pwErr');
+  function closePw(){pwBox.hidden=true;pwIn.value='';pwErr.textContent='';}
+  document.getElementById('lockBtn').addEventListener('click',function(){
+    if(!state.pw){state.viewer=false;save(state);applyViewer();toast('Edit buttons are back');return;}
+    pwBox.hidden=false;pwIn.focus();
+  });
+  document.getElementById('pwCancel').addEventListener('click',closePw);
+  pwBox.addEventListener('click',function(e){if(e.target===pwBox)closePw();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!pwBox.hidden)closePw();});
+  document.getElementById('pwForm').addEventListener('submit',async function(e){
+    e.preventDefault();
+    if(await hashPw(pwIn.value)===state.pw){closePw();state.viewer=false;save(state);applyViewer();toast('Unlocked. Visitor mode is off.');}
+    else{pwErr.textContent='Wrong password. Try again.';pwIn.select();}
+  });
+  applyViewer();
+  document.getElementById('saveCopy2').addEventListener('click',function(){document.getElementById('saveCopy').click();});
+  document.getElementById('saveVisitor').addEventListener('click',function(){
+    if(!state.pw){toast('Set a password first, so you can unlock the visitor copy later.',5000);return;}
+    var prev=!!state.viewer;state.viewer=true;root.classList.add('viewer');
+    document.getElementById('saveCopy').click();
+    state.viewer=prev;save(state);applyViewer();
+  });
+
+  // copy contact on click (links may not open inside some viewers)
+  var msg=document.getElementById('copied');
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var v=b.dataset.copy;
+      if(navigator.clipboard){navigator.clipboard.writeText(v).then(function(){msg.textContent='Copied: '+v;},function(){msg.textContent=v;});}
+      else msg.textContent=v;
+    });
+  });
+})();
+</script>
+
+</body></html>
