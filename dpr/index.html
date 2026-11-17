@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#1e2761">
 
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="icons/icon-192.png">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="PFC DPR">
@@ -62,7 +62,7 @@
 <body>
 
 <div id="splash">
-  <img src="icons/icon-512.png" alt="PFC">
+  <img src="icon-512.png" alt="PFC">
   <div class="name">PFC DPR System</div>
   <div class="bar"><i></i></div>
 </div>
@@ -103,6 +103,24 @@
       navigator.serviceWorker.register('sw.js').catch(function(){});
     });
   }
+
+  // Keep the logged-in session alive: the DPR app runs in the iframe below, and phone
+  // browsers sometimes clear an iframe's own storage sooner than this shell page's storage.
+  // So this shell also keeps a copy of the login token and hands it back on reopen.
+  function cacheGet(){ try { return localStorage.getItem('dpr_token_cache') || ''; } catch(e){ return ''; } }
+  function cacheSet(t){ try { t ? localStorage.setItem('dpr_token_cache', t) : localStorage.removeItem('dpr_token_cache'); } catch(e){} }
+  window.addEventListener('message', function (ev) {
+    if (!ev.data || ev.data.app !== 'PFC_DPR') return;
+    if (ev.data.type === 'save') { cacheSet(ev.data.token || ''); }
+    else if (ev.data.type === 'request') {
+      var t = cacheGet();
+      if (t && frame.contentWindow) frame.contentWindow.postMessage({ app: 'PFC_DPR', type: 'token', token: t }, '*');
+    }
+  });
+  frame.addEventListener('load', function () {
+    var t = cacheGet();
+    if (t) frame.contentWindow.postMessage({ app: 'PFC_DPR', type: 'token', token: t }, '*');
+  });
 
   // Custom one-tap install button (Android / desktop Chrome, Edge)
   var deferredPrompt = null;
