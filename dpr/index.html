@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#1e2761">
 
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="icon-192.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="PFC DPR">
@@ -62,7 +62,7 @@
 <body>
 
 <div id="splash">
-  <img src="icon-512.png" alt="PFC">
+  <img src="icons/icon-512.png" alt="PFC">
   <div class="name">PFC DPR System</div>
   <div class="bar"><i></i></div>
 </div>
@@ -87,6 +87,7 @@
 
   function hideSplash(){ splash.classList.add('hide'); }
   frame.addEventListener('load', hideSplash);
+  // fallback in case the load event doesn't fire inside some embedded contexts
   setTimeout(hideSplash, 4000);
 
   function checkOnline(){
@@ -103,6 +104,7 @@
     });
   }
 
+  // Custom one-tap install button (Android / desktop Chrome, Edge)
   var deferredPrompt = null;
   var installBtn = document.getElementById('installBtn');
   window.addEventListener('beforeinstallprompt', function (e) {
